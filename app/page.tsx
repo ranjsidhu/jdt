@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import "./page.css";
+
+export const metadata: Metadata = {
+  title: "James Darcy Tuition",
+  description: "James Darcy Tuition - Maths, English, Science, 11+",
+};
 
 export default function Home() {
   return (
