@@ -1,0 +1,52 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #014aad;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+  background: url("../public/logo.jpeg") no-repeat center center fixed;
+  background-size: 600px;
+
+  p {
+    margin-top: 500px;
+    color: white;
+    font-size: 30px;
+    font-style: italic;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app-container {
+    background-size: 300px;
+
+    p {
+      margin-top: 200px;
+      color: white;
+      font-size: 30px;
+      font-style: italic;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .app-container {
+    background-size: 270px;
+
+    p {
+      margin-top: 200px;
+      color: white;
+      font-size: 20px;
+      font-style: italic;
+    }
+  }
+}
