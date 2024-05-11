@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ABeeZee } from "next/font/google";
+import { Layout } from "@/components";
 import "./globals.css";
 
 const ABZ = ABeeZee({ style: "normal", weight: "400", subsets: ["latin"] });
@@ -21,8 +22,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={ABZ.className}>
-      <body>{children}</body>
+    <html lang="en">
+      <body className={ABZ.className}>
+        <Layout>
+          {children}
+        </Layout>
+      </body>
     </html>
   );
 }
