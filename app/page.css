@@ -1,3 +1,14 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -10,18 +21,32 @@
 
 .homepage-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 80%;
   height: 80%;
-  background: url("../public/logo.jpeg") no-repeat center center fixed;
-  background-size: 600px;
 
-  p {
-    margin-top: 500px;
+  .coming-soon-tree {
+    width: 600px;
+    height: auto;
+    animation: fadeIn 1s ease-in 2s forwards;
+    visibility: hidden;
+  }
+
+  .coming-soon-statement {
+    width: 700px;
+    height: auto;
+    animation: fadeIn 1s ease-in 1s forwards;
+    visibility: hidden;
+  }
+
+  .coming-soon-text {
     color: white;
     font-size: 30px;
     font-style: italic;
+    animation: fadeIn 1s ease-in 3s forwards;
+    visibility: hidden;
   }
 }
 
@@ -29,10 +54,93 @@
   .app-container {
     background-size: 300px;
 
-    p {
-      margin-top: 200px;
+    .coming-soon-text {
       color: white;
       font-size: 30px;
+      font-style: italic;
+    }
+
+    .coming-soon-statement {
+      width: 600px;
+      height: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 613px) {
+  .app-container {
+    .coming-soon-text {
+      color: white;
+      font-size: 30px;
+      font-style: italic;
+    }
+
+    .coming-soon-statement {
+      width: 500px;
+      height: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .app-container {
+    .coming-soon-statement {
+      width: 400px;
+      height: auto;
+    }
+
+    .coming-soon-text {
+      color: white;
+      font-size: 20px;
+      font-style: italic;
+    }
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .app-container {
+    background-size: 300px;
+
+    .coming-soon-text {
+      color: white;
+      font-size: 30px;
+      font-style: italic;
+    }
+
+    .coming-soon-statement {
+      width: 600px;
+      height: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .app-container {
+    background-size: 300px;
+
+    .coming-soon-text {
+      color: white;
+      font-size: 30px;
+      font-style: italic;
+    }
+
+    .coming-soon-statement {
+      width: 400px;
+      height: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .app-container {
+    .coming-soon-statement {
+      width: 300px;
+      height: auto;
+    }
+
+    .coming-soon-text {
+      color: white;
+      font-size: 20px;
       font-style: italic;
     }
   }
@@ -42,8 +150,12 @@
   .app-container {
     background-size: 270px;
 
-    p {
-      margin-top: 200px;
+    .coming-soon-statement {
+      width: 300px;
+      height: auto;
+    }
+
+    .coming-soon-text {
       color: white;
       font-size: 20px;
       font-style: italic;
