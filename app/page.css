@@ -97,23 +97,6 @@
   }
 }
 
-@media screen and (max-width: 475px) {
-  .app-container {
-    background-size: 300px;
-
-    .coming-soon-text {
-      color: white;
-      font-size: 30px;
-      font-style: italic;
-    }
-
-    .coming-soon-statement {
-      width: 600px;
-      height: auto;
-    }
-  }
-}
-
 @media screen and (max-width: 425px) {
   .app-container {
     background-size: 300px;
