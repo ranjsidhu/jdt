@@ -6,7 +6,7 @@ export async function GET(
   { params }: { params: { id: number } }
 ) {
   const { data, error } = await client
-    .from("year_groups")
+    .from("roles")
     .select()
     .eq("id", params.id);
   if (error) {
@@ -24,7 +24,7 @@ export async function PATCH(
   const { data, error } = await update({
     body,
     id,
-    table: "year_groups",
+    table: "roles",
   });
   if (error) {
     return NextResponse.json({ error });
