@@ -20,7 +20,7 @@ export default function Home() {
           className="coming-soon-statement"
         />
         <br />
-        <p className="coming-soon-text">Coming soon...</p>
+        <p className="coming-soon-text">COMING SOON</p>
       </div>
     </main>
   );
