@@ -8,9 +8,24 @@ type CreateParams = {
   table: string;
 };
 
+type PatchParams = {
+  body: { [key: string]: number | string | Date };
+  table: string;
+  id: number;
+};
+
 const create = async ({ body, table }: CreateParams) => {
   const { data, error } = await client.from(table).insert(body).select();
   return { data, error };
 };
 
-export { client, create };
+const update = async ({ body, table, id }: PatchParams) => {
+  const { data, error } = await client
+    .from(table)
+    .update({ ...body, updated_at: new Date().toISOString() })
+    .eq("id", id)
+    .select();
+  return { data, error };
+};
+
+export { client, create, update };
