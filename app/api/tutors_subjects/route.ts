@@ -2,7 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { client, create } from "../utils/db-client";
 
 export async function GET() {
-  const { data, error } = await client.from("tutors_subjects").select();
+  const { data, error } = await client.from("tutors_subjects").select(`
+    tutors (name, email, phone),
+    subjects (name, label)
+  `);
+
   if (error) {
     return NextResponse.json({ error });
   }
