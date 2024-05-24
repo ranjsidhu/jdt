@@ -1,20 +1,15 @@
-const { createClient } = require("@supabase/supabase-js");
+import {
+  BaseParams,
+  PatchParams,
+  CustomPatchParams,
+  UpsertParams,
+} from "../types";
 
+const { createClient } = require("@supabase/supabase-js");
 const { DB_URL, DB_API_ANON_KEY } = process.env;
 const client = createClient(DB_URL, DB_API_ANON_KEY);
 
-type CreateParams = {
-  body: { [key: string]: number | string | Date };
-  table: string;
-};
-
-type PatchParams = {
-  body: { [key: string]: number | string | Date };
-  table: string;
-  id: number;
-};
-
-const create = async ({ body, table }: CreateParams) => {
+const create = async ({ body, table }: BaseParams) => {
   const { data, error } = await client.from(table).insert(body).select();
   return { data, error };
 };
@@ -28,4 +23,23 @@ const update = async ({ body, table, id }: PatchParams) => {
   return { data, error };
 };
 
-export { client, create, update };
+const custom_update = async ({
+  body,
+  table,
+  updateColumn,
+  updateValue,
+}: CustomPatchParams) => {
+  const { data, error } = await client
+    .from(table)
+    .update({ ...body, updated_at: new Date().toISOString() })
+    .eq(updateColumn, updateValue)
+    .select();
+  return { data, error };
+};
+
+const upsert = async ({ table, values }: UpsertParams) => {
+  const { data, error } = await client.from(table).upsert(values).select();
+  return { data, error };
+};
+
+export { client, create, update, custom_update, upsert };
