@@ -13,11 +13,17 @@ export default function Home() {
   return (
     <main className="main">
       <div className="homepage-container">
-        <Image src={Tree} alt="Tree logo" className="coming-soon-tree" />
+        <Image
+          src={Tree}
+          alt="Tree logo"
+          className="coming-soon-tree"
+          priority
+        />
         <Image
           src={Statement}
           alt="Tree logo"
           className="coming-soon-statement"
+          priority
         />
         <br />
         <p className="coming-soon-text">COMING SOON</p>

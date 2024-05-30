@@ -7,7 +7,12 @@ export async function GET(
 ) {
   const { data, error } = await client
     .from("users_subjects")
-    .select()
+    .select(
+      `
+      users (id, student_name),
+      subjects (id, name, label)
+      `
+    )
     .eq("user_id", params.id);
   if (error) {
     return NextResponse.json({ error });
