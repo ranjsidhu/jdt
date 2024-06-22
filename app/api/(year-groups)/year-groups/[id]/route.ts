@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { client, update } from "../../utils/db-client";
+import { client, update } from "@/utils/api/db-client";
 
 export async function GET(
   req: NextRequest,
@@ -19,11 +19,12 @@ export async function PATCH(
   req: NextRequest,
   { params }: { params: { id: number } }
 ) {
-  const { name, label } = await req.json();
+  const body = await req.json();
+  const id = params.id;
   const { data, error } = await update({
-    body: { name, label },
+    body,
+    id,
     table: "year_groups",
-    id: params.id,
   });
   if (error) {
     return NextResponse.json({ error });

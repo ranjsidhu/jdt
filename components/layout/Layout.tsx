@@ -1,12 +1,12 @@
 "use client";
 
+import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "./layout.css";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="app-container">
-      <div className="navbar"></div>
-      {children}
-    </div>
+    <AntdRegistry>
+      <div className="app-container">{children}</div>
+    </AntdRegistry>
   );
 }

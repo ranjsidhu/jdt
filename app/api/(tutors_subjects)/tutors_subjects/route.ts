@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { client, create } from "../utils/db-client";
+import { client, create } from "@/utils/api/db-client";
 
 export async function GET() {
-  const { data, error } = await client.from("subjects").select();
+  const { data, error } = await client.from("tutors_subjects").select(`
+    tutors (name, email, phone),
+    subjects (name, label)
+  `);
+
   if (error) {
     return NextResponse.json({ error });
   }
@@ -10,16 +14,16 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  const { name, label } = await req.json();
+  const { subject_id, tutor_id } = await req.json();
   const { data, error } = await create({
-    body: { name, label },
-    table: "subjects",
+    body: { subject_id, tutor_id },
+    table: "tutors_subjects",
   });
   if (error) {
     return NextResponse.json({ error });
   }
   return NextResponse.json({
-    message: "Successfully created subject",
+    message: "Successfully created tutor record",
     response: { ...data },
   });
 }
