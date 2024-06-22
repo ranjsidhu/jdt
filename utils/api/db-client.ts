@@ -6,8 +6,8 @@ import {
 } from "./types";
 
 const { createClient } = require("@supabase/supabase-js");
-const { DB_URL, DB_API_ANON_KEY } = process.env;
-const client = createClient(DB_URL, DB_API_ANON_KEY);
+const { NEXT_PUBLIC_DB_URL, NEXT_PUBLIC_DB_API_ANON_KEY } = process.env;
+const client = createClient(NEXT_PUBLIC_DB_URL, NEXT_PUBLIC_DB_API_ANON_KEY);
 
 const create = async ({ body, table }: BaseParams) => {
   const { data, error } = await client.from(table).insert(body).select();
