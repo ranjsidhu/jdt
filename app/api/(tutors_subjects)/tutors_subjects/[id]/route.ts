@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { client, custom_update } from "../../../utils/db-client";
+import { client, custom_update } from "@/utils/api/db-client";
 
 export async function GET(
   req: NextRequest,

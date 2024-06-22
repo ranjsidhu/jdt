@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { client, create, upsert } from "../utils/db-client";
+import { client, create, upsert } from "@/utils/api/db-client";
 
 export async function GET() {
   const { data, error } = await client.from("users_subjects").select(`

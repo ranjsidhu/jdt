@@ -3,7 +3,7 @@ import {
   PatchParams,
   CustomPatchParams,
   UpsertParams,
-} from "../types";
+} from "./types";
 
 const { createClient } = require("@supabase/supabase-js");
 const { DB_URL, DB_API_ANON_KEY } = process.env;
